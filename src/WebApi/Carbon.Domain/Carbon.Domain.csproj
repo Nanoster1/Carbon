@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Carbon.Core.Domain\Carbon.Core.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
