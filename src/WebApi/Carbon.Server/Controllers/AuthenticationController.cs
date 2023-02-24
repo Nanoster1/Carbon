@@ -2,7 +2,7 @@ using Carbon.Application.Authentication.Commands;
 using Carbon.Application.Authentication.Queries;
 using Carbon.Contracts.Authentication.PostRequests;
 using Carbon.Contracts.Authentication.Responses;
-using Carbon.Contracts.Routes.Server;
+using Carbon.Contracts.Common.Routes.Server;
 using Carbon.Server.Controllers.Common;
 
 using MapsterMapper;

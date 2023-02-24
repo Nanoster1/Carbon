@@ -1,5 +1,5 @@
 using Carbon.Contracts.Authentication.Responses;
-using Carbon.Contracts.Routes.Server;
+using Carbon.Contracts.Common.Routes.Server;
 using Carbon.Core.Http.Common.Classes;
 using Carbon.Core.Http.Requests;
 

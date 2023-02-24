@@ -1,4 +1,4 @@
-namespace Carbon.Contracts.Routes.Server;
+namespace Carbon.Contracts.Common.Routes.Server;
 
 /// <summary>
 /// Константы для маршрутов сервера

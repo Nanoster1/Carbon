@@ -26,6 +26,7 @@
     <ProjectReference Include="..\..\Core\Carbon.Core.FileSystem\Carbon.Core.FileSystem.csproj" />
     <ProjectReference Include="..\..\Core\Carbon.Core.AspNetCore.Configuration\Carbon.Core.AspNetCore.Configuration.csproj" />
     <ProjectReference Include="..\..\Core\Carbon.Core.Mapster\Carbon.Core.Mapster.csproj" />
+    <ProjectReference Include="..\..\Core\Carbon.Core.DataRequests\Carbon.Core.DataRequests.csproj" />
   </ItemGroup>
 
   <ItemGroup>

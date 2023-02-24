@@ -1,3 +1,8 @@
+using System.Text.Json;
+
+using Carbon.Contracts.Common.Headers;
+using Carbon.Core.DataRequests.Pagination;
+
 using ErrorOr;
 
 using Mari.Server.Filters;
@@ -24,6 +29,7 @@ namespace Carbon.Server.Controllers.Common;
 [CarbonAuthorizeFilter]
 public abstract class ApiController : ControllerBase
 {
+    #region Обработка ошибок
     /// <summary>
     /// Обрабатывает ошибки <see cref="Error"/>
     /// </summary>
@@ -68,4 +74,19 @@ public abstract class ApiController : ControllerBase
 
         return Problem(title: error.Description, statusCode: statusCode);
     }
+    #endregion
+
+    #region Пагинация
+    /// <summary>
+    /// Выставляет заголовок ответа <see cref="Headers.Common.PaginationInfo"/> <br/>
+    /// Необходимо использовать при наличии пагинации в запросе
+    /// </summary>
+    /// <param name="pageOutputInfo">
+    /// Информация о пагинации
+    /// </param>
+    protected void SetPaginationHeader(PageOutputInfo pageOutputInfo)
+    {
+        Response.Headers.Add(Headers.Common.PaginationInfo, JsonSerializer.Serialize(pageOutputInfo));
+    }
+    #endregion
 }
