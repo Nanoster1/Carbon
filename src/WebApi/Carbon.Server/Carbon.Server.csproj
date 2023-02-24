@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <Version>0.0.1</Version>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591;1573</NoWarn>
+    <UserSecretsId>308ea388-f1e6-4994-a92f-ac9b6a8e4bf7</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.UI" Version="6.0.5" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="6.0.5" />
+    <PackageReference Include="ErrorOr" Version="1.2.1" />
+    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="7.0.3" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Carbon.Contracts\Carbon.Contracts.csproj" />
+    <ProjectReference Include="..\Carbon.Application\Carbon.Application.csproj" />
+    <ProjectReference Include="..\Carbon.Infrastructure\Carbon.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Core\Carbon.Core.FileSystem\Carbon.Core.FileSystem.csproj" />
+    <ProjectReference Include="..\..\Core\Carbon.Core.AspNetCore.Configuration\Carbon.Core.AspNetCore.Configuration.csproj" />
+    <ProjectReference Include="..\..\Core\Carbon.Core.Mapster\Carbon.Core.Mapster.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Configurations\Logging\logging_settings.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Resources\Configurations\app_settings.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Resources\Configurations\Swagger\swagger_settings.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Resources\Configurations\Authentication\authentication_settings.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+</Project>
