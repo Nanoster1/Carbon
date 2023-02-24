@@ -1,4 +1,4 @@
-namespace Carbon.Contracts.Routes.Server;
+namespace Carbon.Contracts.Common.Routes.Server;
 
 public static partial class ServerRoutes
 {

@@ -1,4 +1,4 @@
-using Carbon.Contracts.Routes.Server;
+using Carbon.Contracts.Common.Routes.Server;
 using Carbon.Server.Controllers.Common;
 
 using Microsoft.AspNetCore.Authorization;

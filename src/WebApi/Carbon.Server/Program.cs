@@ -1,15 +1,14 @@
 using Carbon.Application;
-using Carbon.Contracts.Routes.Server;
 using Carbon.Infrastructure;
 using Carbon.Server.Swagger;
 using Carbon.Server.Configuration;
 using Carbon.Server.Logging;
-
-using Serilog;
 using Carbon.Server.Authentication;
 using Carbon.Server.Mapping;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Carbon.Server.HealthChecking;
+using Carbon.Contracts.Common.Routes.Server;
+
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 {
