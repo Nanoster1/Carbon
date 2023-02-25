@@ -5,10 +5,12 @@ namespace Carbon.Server.HealthChecking;
 
 public static class DependencyInjection
 {
-    public static void AddCarbonHealthChecking(this IServiceCollection services)
+    public static IServiceCollection AddCarbonHealthChecking(this IServiceCollection services)
     {
-        var builder = services.AddHealthChecks();
-        builder.AddCheck<SimpleHealthCheck>(nameof(SimpleHealthCheck));
-        builder.AddDbContextCheck<CarbonDbContext>();
+        services.AddHealthChecks()
+            .AddCheck<SimpleHealthCheck>(nameof(SimpleHealthCheck))
+            .AddDbContextCheck<CarbonDbContext>();
+
+        return services;
     }
 }

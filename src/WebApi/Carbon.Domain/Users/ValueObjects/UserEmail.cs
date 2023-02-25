@@ -10,7 +10,7 @@ namespace Carbon.Domain.Users.ValueObjects;
 /// </summary>
 public sealed record UserEmail : ValueObjectWrapper<string, UserEmail>
 {
-    public static Regex Pattern { get; } = new(".+@.+\\..+", RegexOptions.Compiled);
+    public static Regex Pattern { get; } = new(".+@.+\\..+", RegexOptions.Compiled, TimeSpan.FromMilliseconds(250));
 
     [Obsolete(ObsoleteMessage, true)]
     public UserEmail() { }

@@ -5,8 +5,7 @@ using Carbon.Core.DataRequests.Pagination;
 
 using ErrorOr;
 
-using Mari.Server.Filters;
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Carbon.Server.Controllers.Common;
@@ -18,7 +17,7 @@ namespace Carbon.Server.Controllers.Common;
 /// Включает в себя <see cref="ApiControllerAttribute"/>
 /// </item>
 /// <item>
-/// Защищён <see cref="CarbonAuthorizeFilter"/>
+/// Защищён <see cref="AuthorizeAttribute"/>
 /// </item>
 /// <item>
 /// Содержит методы обработки ошибок типа <see cref="Error"/>
@@ -26,7 +25,7 @@ namespace Carbon.Server.Controllers.Common;
 /// </list>
 /// </summary>
 [ApiController]
-[CarbonAuthorizeFilter]
+[Authorize]
 public abstract class ApiController : ControllerBase
 {
     #region Обработка ошибок
