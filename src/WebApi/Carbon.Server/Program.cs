@@ -7,8 +7,11 @@ using Carbon.Server.Authentication;
 using Carbon.Server.Mapping;
 using Carbon.Server.HealthChecking;
 using Carbon.Contracts.Common.Routes.Server;
+using Carbon.Server.ProblemDetails;
 
 using Serilog;
+
+using Hellang.Middleware.ProblemDetails;
 
 var builder = WebApplication.CreateBuilder(args);
 {
@@ -33,6 +36,7 @@ var builder = WebApplication.CreateBuilder(args);
         services.AddCarbonAuthentication(configuration);
         services.AddCarbonHealthChecking();
 
+        services.AddProblemDetails(options => options.ConfigureProblemDetails());
         services.AddControllers();
         services.AddEndpointsApiExplorer();
 
@@ -46,6 +50,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Pipeline приложения
 var app = builder.Build();
 {
+    app.UseProblemDetails();
+
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();

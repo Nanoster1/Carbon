@@ -3,6 +3,8 @@ using System.Text;
 using Carbon.Core.AspNetCore.Configuration.Exceptions;
 using Carbon.Infrastructure.Authentication.Settings;
 
+using IdentityModel;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -20,6 +22,7 @@ public static class JwtAuthenticationConfig
         options.RequireHttpsMetadata = false;
         options.TokenValidationParameters = new TokenValidationParameters
         {
+            NameClaimType = JwtClaimTypes.Name,
             ValidateIssuer = true,
             ValidateAudience = true,
             ValidateLifetime = true,

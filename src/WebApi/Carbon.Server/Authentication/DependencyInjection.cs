@@ -7,11 +7,13 @@ namespace Carbon.Server.Authentication;
 
 public static class DependencyInjection
 {
-    public static void AddCarbonAuthentication(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddCarbonAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddAuthentication(options => options.ConfigureAuthentication())
             .AddGoogle(configuration)
             .AddJwtBearer(JwtAuthenticationConfig.AuthenticationScheme, options => options.ConfigureApplicationJwt(configuration));
+
+        return services;
     }
 
     private static AuthenticationBuilder AddGoogle(this AuthenticationBuilder builder, IConfiguration configuration)

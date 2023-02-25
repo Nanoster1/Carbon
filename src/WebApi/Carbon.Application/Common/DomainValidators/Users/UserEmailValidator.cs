@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 using Carbon.Domain.Users.ValueObjects;
 
 using FluentValidation;
