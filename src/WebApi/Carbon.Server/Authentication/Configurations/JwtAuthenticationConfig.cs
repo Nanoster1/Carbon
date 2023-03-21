@@ -14,12 +14,15 @@ public static class JwtAuthenticationConfig
 {
     public const string AuthenticationScheme = JwtBearerDefaults.AuthenticationScheme;
 
-    public static void ConfigureApplicationJwt(this JwtBearerOptions options, IConfiguration configuration)
+    public static void ConfigureApplicationJwt(
+        this JwtBearerOptions options,
+        IConfiguration configuration)
     {
         var jwtSettings = configuration.GetSection(JwtSettings.SectionName).Get<JwtSettings>() ??
             throw new ConfigSettingsNotFoundException(JwtSettings.SectionName);
 
         options.RequireHttpsMetadata = false;
+
         options.TokenValidationParameters = new TokenValidationParameters
         {
             NameClaimType = JwtClaimTypes.Name,

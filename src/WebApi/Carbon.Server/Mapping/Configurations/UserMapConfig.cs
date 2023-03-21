@@ -1,5 +1,5 @@
-using Carbon.Application.Authentication.Commands;
-using Carbon.Application.Authentication.Queries;
+using Carbon.Application.Authentication.Commands.Registration;
+using Carbon.Application.Authentication.Queries.Login;
 using Carbon.Application.Authentication.Results;
 using Carbon.Contracts.Authentication.PostRequests;
 using Carbon.Contracts.Authentication.Responses;

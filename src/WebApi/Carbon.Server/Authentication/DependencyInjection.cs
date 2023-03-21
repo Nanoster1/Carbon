@@ -10,7 +10,7 @@ public static class DependencyInjection
     public static IServiceCollection AddCarbonAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddAuthentication(options => options.ConfigureAuthentication())
-            .AddGoogle(configuration)
+            //.AddGoogle(configuration)
             .AddJwtBearer(JwtAuthenticationConfig.AuthenticationScheme, options => options.ConfigureApplicationJwt(configuration));
 
         return services;

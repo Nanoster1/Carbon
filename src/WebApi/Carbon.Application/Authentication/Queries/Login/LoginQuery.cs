@@ -5,7 +5,7 @@ using ErrorOr;
 
 using MediatR;
 
-namespace Carbon.Application.Authentication.Queries;
+namespace Carbon.Application.Authentication.Queries.Login;
 
 /// <summary>
 /// Запрос на вход пользователя

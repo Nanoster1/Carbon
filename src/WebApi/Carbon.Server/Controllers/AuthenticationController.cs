@@ -1,9 +1,10 @@
-using Carbon.Application.Authentication.Commands;
-using Carbon.Application.Authentication.Queries;
+using Carbon.Application.Authentication.Commands.Registration;
+using Carbon.Application.Authentication.Queries.Login;
 using Carbon.Contracts.Authentication.PostRequests;
 using Carbon.Contracts.Authentication.Responses;
 using Carbon.Contracts.Common.Routes.Server;
 using Carbon.Server.Controllers.Common;
+using Carbon.Domain.Common.Errors;
 
 using MapsterMapper;
 
@@ -35,6 +36,11 @@ public sealed class AuthenticationController : ApiController
     [HttpPost(LoginRequest.RouteConstant), AllowAnonymous]
     public async Task<ActionResult<AuthenticationResponse>> Login([FromBody] LoginRequest.Body body)
     {
+        if (User.Identity?.IsAuthenticated ?? false)
+        {
+            return Problem(Errors.User.UserAlreadyAuthenticated);
+        }
+
         var loginQuery = _mapper.Map<LoginQuery>(body);
         var loginCommandResult = await _sender.Send(loginQuery);
 
@@ -51,6 +57,11 @@ public sealed class AuthenticationController : ApiController
     [HttpPost(RegistrationRequest.RouteConstant), AllowAnonymous]
     public async Task<ActionResult<AuthenticationResponse>> Registration([FromBody] RegistrationRequest.Body body)
     {
+        if (User.Identity?.IsAuthenticated ?? false)
+        {
+            return Problem(Errors.User.UserAlreadyAuthenticated);
+        }
+
         var registrationCommand = _mapper.Map<RegistrationCommand>(body);
         var registrationCommandResult = await _sender.Send(registrationCommand);
 

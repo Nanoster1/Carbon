@@ -5,7 +5,7 @@ using ErrorOr;
 
 using MediatR;
 
-namespace Carbon.Application.Authentication.Commands;
+namespace Carbon.Application.Authentication.Commands.Registration;
 
 /// <summary>
 /// Команда регистрации пользователя

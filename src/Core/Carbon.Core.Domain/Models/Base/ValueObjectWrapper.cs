@@ -66,12 +66,6 @@ public abstract record ValueObjectWrapper<TValue, TSelf> : ValueObjectWrapper<TV
     [Obsolete(ObsoleteMessage, true)]
     protected ValueObjectWrapper() { }
 
-    protected ValueObjectWrapper(TValue value)
-    {
-        if (value is null) throw new ArgumentNullException(nameof(value));
-        Value = value;
-    }
-
     /// <summary>
     /// Фабричный метод <br/>
     /// Необходимо конструктор без параметров определять с атрибутом <see cref="ObsoleteAttribute"/> при наследовании <br/>

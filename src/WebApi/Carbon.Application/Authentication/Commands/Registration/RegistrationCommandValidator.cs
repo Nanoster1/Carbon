@@ -2,7 +2,7 @@ using Carbon.Domain.Users.ValueObjects;
 
 using FluentValidation;
 
-namespace Carbon.Application.Authentication.Commands;
+namespace Carbon.Application.Authentication.Commands.Registration;
 
 public sealed class RegistrationCommandValidator : AbstractValidator<RegistrationCommand>
 {

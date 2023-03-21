@@ -24,10 +24,7 @@ public sealed class User : AggregateRoot<UserId>
     /// </summary>
     public static ErrorOr<User> Create(Username username, UserEmail email, UserPassword password)
     {
-        username.ValidateAndThrow();
-        email.ValidateAndThrow();
-        password.ValidateAndThrow();
-
+        ValidateAndThrow(username, email, password);
         return new User(username, email, UserRole.User)
         {
             Password = password
@@ -53,11 +50,11 @@ public sealed class User : AggregateRoot<UserId>
     /// <summary>
     /// Токен доступа пользователя
     /// </summary>
-    public UserAccessToken AccessToken { get; private set; } = UserAccessToken.Default;
+    public UserAccessToken AccessToken { get; private set; } = MakeDefault<UserAccessToken>();
 
     public ErrorOr<Updated> ChangeAccessToken(UserAccessToken accessToken)
     {
-        accessToken.ValidateAndThrow();
+        ValidateAndThrow(accessToken);
         AccessToken = accessToken;
         return Result.Updated;
     }

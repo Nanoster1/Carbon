@@ -2,7 +2,7 @@ using Carbon.Domain.Users.ValueObjects;
 
 using FluentValidation;
 
-namespace Carbon.Application.Authentication.Queries;
+namespace Carbon.Application.Authentication.Queries.Login;
 
 public sealed class LoginQueryValidator : AbstractValidator<LoginQuery>
 {

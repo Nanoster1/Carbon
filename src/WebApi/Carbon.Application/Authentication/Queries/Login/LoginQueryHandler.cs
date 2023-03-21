@@ -11,7 +11,7 @@ using ErrorOr;
 
 using MediatR;
 
-namespace Carbon.Application.Authentication.Queries;
+namespace Carbon.Application.Authentication.Queries.Login;
 
 public sealed class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<AuthenticationResult>>
 {

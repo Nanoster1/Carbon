@@ -12,7 +12,7 @@ using ErrorOr;
 
 using MediatR;
 
-namespace Carbon.Application.Authentication.Commands;
+namespace Carbon.Application.Authentication.Commands.Registration;
 
 public sealed class RegistrationCommandHandler : IRequestHandler<RegistrationCommand, ErrorOr<AuthenticationResult>>
 {
